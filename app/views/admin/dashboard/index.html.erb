@@ -1,0 +1,68 @@
+<div class="message">
+</div>
+  <% if flash[:success] %>
+    <div class="alert alert-success">
+  <%= flash[:success] %>
+    </div>
+  <% end %>
+
+
+<div class="">
+  <a href="<%= new_admin_user_path %>" class="btn btn-primary">Thêm mới</a>
+</div></br>
+<label for="teacher">Danh sách giáo viên</label>
+<div class="list-user">
+<table class="table table-hover table-bordered" >
+
+  <tr style="background: pink">
+    <th>STT</th>
+    <th>Tên</th>
+    <th>Số điện thoại</th>
+    <th>Địa chỉ</th>
+    <th>Email</th>
+    <th>Chức năng</th>
+  </tr>
+  <% @teachers.each_with_index do |teacher,index| %>
+  <tr class="box-user">
+    <td><%= index+1 %></td>
+    <td><%= teacher.name %></td>
+    <td><%= teacher.phone %></td>
+    <td><%= teacher.address %></td>
+    <td><%= teacher.email %></td>
+    <td>
+      <a href="<%= edit_admin_user_path(teacher) %>" class="btn btn-info">Sửa</a>
+      <a data-target="<%= teacher.id %>" class="btn btn-danger delete-user" data-confirm="Bạn chắc chắn muốn xóa?">Xóa</a>
+    </td>
+  </tr>
+  <% end %>
+    <tr><td colspan="6"><%= will_paginate @teachers %></td></tr>
+</table>
+</div>
+
+<label for="student">Danh sách học viên</label>
+<div class="list-user">
+<table class="table table-hover table-bordered" >
+  <tr style="background: pink">
+    <th>STT</th>
+    <th>Tên</th>
+    <th>Số điện thoại</th>
+    <th>Địa chỉ</th>
+    <th>Email</th>
+    <th>Chức năng</th>
+  </tr>
+  <% @students.each_with_index do |student,index| %>
+  <tr class="box-user">
+    <td><%= index+1 %></td>
+    <td><%= student.name %></td>
+    <td><%= student.phone %></td>
+    <td><%= student.address %></td>
+    <td><%= student.email %></td>
+    <td>
+      <a href="<%= edit_admin_user_path(student) %>" class="btn btn-info">Sửa</a>
+      <a data-target="<%= student.id %>" class="btn btn-danger delete-user" data-confirm="Bạn chắc chắn muốn xóa?">Xóa</a>
+    </td>
+  </tr>
+  <% end %>
+    <tr><td colspan="6"><%= will_paginate @students %></td></tr>
+</table>
+</div>

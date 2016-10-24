@@ -1,0 +1,25 @@
+
+<% if flash[:error] %>
+<div class="col-md-12 alert-danger alert">
+<%= flash[:error] %>
+</div>
+<% end %>
+
+<div class="col-md-6">
+<%= form_for :session, url: sign_path do |f| %>
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <%= f.text_field :email, class: "form-control", placeholder: "Email address"%>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <%= f.text_field :password, class: "form-control", placeholder: "Password" %>
+  </div>
+  <div class="checkbox">
+    <label>
+      <a href="<%= new_user_path %>">Register</a>
+    </label>
+  </div>
+  <button type="submit" class="btn btn-primary" name="button">Đăng nhập</button>
+<% end %>
+</div>

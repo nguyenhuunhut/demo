@@ -1,0 +1,38 @@
+<% if flash[:success] %>
+  <div class="alert alert-success">
+  <%= flash[:success] %>
+  </div>
+<% end %>
+<div class="message">
+
+</div>
+
+<div>
+<a href="<%= new_teacher_course_path %>" class="btn btn-primary">Thêm khóa học</a>
+</div></br>
+
+<label for="teacher">Danh sách khóa học</label>
+<div class="list-course">
+<table class="table table-hover table-bordered" >
+  <tr style="background: pink">
+    <th>STT</th>
+    <th>Tên khóa học</th>
+    <th>Mô tả</th>
+    <th>Ngày tạo</th>
+    <th>Chức năng</th>
+  </tr>
+  <% @courses.each_with_index do |course,index| %>
+  <tr class="box-course">
+    <td><%= index+1 %></td>
+    <td><%= course.name %></td>
+    <td><%= course.description %></td>
+    <td><%= course.created_at.strftime("%d/%m/%Y %H:%M") %></td>
+    <td>
+      <a href="<%= edit_teacher_course_path(course) %>" class="btn btn-info">Sửa</a>
+      <a data-target=" <%= course %>" class="btn btn-danger delete-course" data-confirm="Bạn chắc chắn muốn xóa?">Xóa</a>
+      <a href="<%= teacher_course_path(course) %>" class="btn btn-success">Lớp học</a>
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>

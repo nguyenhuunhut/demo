@@ -1,0 +1,33 @@
+
+<%= form_for @user, url: admin_user_path(@user) do |f| %>
+<div class="col-md-12">
+<div class="col-md-6">
+  <div class="form-group">
+    <label for="exampleInputName2">Họ tên</label>
+    <%= f.text_field :name, class: "form-control", placeholder: "Họ tên" %>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Số điện thoại</label>
+    <%= f.text_field :phone, class: "form-control", placeholder: "Số điện thoại" %>
+  </div>
+    <div class="form-group">
+      <label for="exampleInputEmail2">Địa chỉ</label>
+      <%= f.text_field :address, class: "form-control", placeholder: "Địa chỉ" %>
+    </div>
+  </div>
+
+<div class="col-md-6">
+  <div class="form-group">
+    <label for="exampleInputName2">Email</label>
+    <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Chức vụ</label>
+    <%= f.select(:role, options_for_select([["Giáo viên", 1], ["Học viên",0]],@user.role),{},{class: "form-control"})%>
+  </div>
+  </div>
+  <div class="pull-right">
+    <button type="submit" name="button" class="btn btn-primary ">Sửa</button>
+  </div>
+</div>
+<% end %>
