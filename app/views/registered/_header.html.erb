@@ -1,0 +1,55 @@
+<html>
+<head>
+<link href="../assets/style.css" rel="stylesheet" type="text/css" media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+<!--slider-->
+<link href="../assets/slider.css" rel="stylesheet" type="text/css" media="all"/>
+</head>
+<body>
+<div class="header">
+	<div class="header-top">
+		<div class="wrap">
+				<div class="logo">
+					<a href="index.html"><img src="../assets/logo.png" alt=""></a>
+				</div>
+				<div class="search_box">
+				<form>
+				   <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"><input type="submit" value="">
+			    </form>
+			</div>
+			<div class="clear"></div>
+	    </div>
+    </div>
+	<div class="header-bottom">
+		 <div class="wrap">
+			 <div id='cssmenu'>
+				<ul class=" navbar-nav">
+				   <li class='active'><a href='<%= home_index_path %>'><span>Home</span></a></li>
+           <% if @current_user && @current_user.is_admin %>
+          <li><a href="<%= admin_dashboard_teachers_path %>">Giáo viên</a></li>
+					<li><a href="<%= admin_dashboard_students_path %>">Học viên</a></li>
+           <% else %>
+          <% if @current_user && @current_user.is_teacher %>
+          <li><a href="<%= teacher_courses_path %>">Khoá học</a></li>
+          <% else %>
+          <li><a href="<%= courses_path %>">Khoá học</a></li>
+					<li><a href="<%= classrooms_registered_path %>">Lớp học đã ĐK</a></li>
+          <% end %>
+            <% end %>
+
+				</ul>
+        <ul class=" navbar-nav navbar-right">
+          <% if @current_user %>
+          <li><a style="font-weight: bold"><%= @current_user.name %></a></li>
+          <li class="last login"><a href="<%= logout_path %>">Logout</a></li>
+          <% else %>
+          <li class="last login"><a href="<%= login_path %>">Login</a></li>
+          <% end %>
+        </ul>
+        <div class="clear"></div>
+			  </div>
+		 </div>
+    </div>
+</div>

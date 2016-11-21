@@ -10,11 +10,17 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<div class="container">
-  <%= render "partils/header" %>
-  <%= yield %>
+<%= render "partils/header" %>
 
-</div>
+
+  <% if flash[:error] %>
+  <div class="col-md-2 alert-danger alert pull-right" style="text-align: center">
+  <%= flash[:error] %>
+  </div>
+  <% end %>
+  <div class="container">
+  <%= yield %>
+  </div>
    <!-- <%= render "partils/footer" %> -->
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

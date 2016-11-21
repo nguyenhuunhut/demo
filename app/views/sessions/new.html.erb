@@ -1,11 +1,10 @@
 
-<% if flash[:error] %>
-<div class="col-md-12 alert-danger alert">
-<%= flash[:error] %>
-</div>
-<% end %>
 
-<div class="col-md-6">
+<div class="col-md-4 col-sm-offset-4 well">
+  <div style="text-align:center">
+  <h2>Login system</h2>
+  <br/>
+</div>
 <%= form_for :session, url: sign_path do |f| %>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -20,6 +19,6 @@
       <a href="<%= new_user_path %>">Register</a>
     </label>
   </div>
-  <button type="submit" class="btn btn-primary" name="button">Đăng nhập</button>
+  <button type="submit" class="btn btn-primary col-md-12" name="button">Login</button>
 <% end %>
 </div>

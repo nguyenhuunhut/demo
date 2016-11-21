@@ -33,8 +33,12 @@
     <td><%= classroom.total%></td>
     <td class="view-registers"><%= classroom.registers.where(is_register: true).count %></td>
     <td>
-      <% register = classroom.registers.where(user_id: @current_user.id) %>
-      <a data-target="<%= register_classroom_path(classroom.id) %>" class="btn btn-primary register-classroom"><%= register.try(:is_register) ? "Đăng ký" :  "Hủy đăng ký"  %></a>
+      <%  register = classroom.registers.where(user_id: @current_user.id).first
+      if register %>
+      <a data-target="<%= register_classroom_path(classroom.id) %>" class="btn btn-primary register-classroom"><%= register.try(:is_register) ? "Hủy đăng ký" : "Đăng ký"     %></a>
+      <% else %>
+        <a data-target="<%= register_classroom_path(classroom.id) %>" class="btn btn-primary register-classroom">Đăng ký</a>
+      <% end %>
     </td>
   </tr>
   <% end %>

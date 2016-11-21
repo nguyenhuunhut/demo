@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
      if @current_user
        user = User.find_by id: @current_user.id
        if user.is_admin
-         redirect_to admin_dashboard_path
+         redirect_to admin_users_path
        else
           if user.is_teacher
              redirect_to teacher_courses_path
@@ -23,7 +23,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       session[:user_id] = user.id
       if user.is_admin
-        redirect_to admin_dashboard_path
+        redirect_to admin_users_path
       else
          if user.is_teacher
             redirect_to teacher_courses_path

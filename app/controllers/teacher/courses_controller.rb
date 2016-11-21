@@ -1,6 +1,7 @@
 class Teacher::CoursesController < ApplicationController
   def index
         @courses = @current_user.courses
+        @notications = Notication.where(id_to: @current_user, status: true)
   end
 
   def show

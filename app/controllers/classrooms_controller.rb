@@ -7,9 +7,22 @@ class ClassroomsController < ApplicationController
     if @classroom.registers.where(is_register: true).count < @classroom.total
     if register
       register.update is_register: !register.is_register
+      if register.is_register == true
+        notication = Notication.new(id_from: @current_user.id, id_to: @classroom.user_id, content:
+         "Sinh viên #{@current_user.name} vừa đăng ký vào lớp #{@classroom.name}")
+        notication.save
+      else
+        notication = Notication.new(id_from: @current_user.id, id_to: @classroom.user_id, content:
+         "Sinh viên #{@current_user.name} vừa rời khỏi lớp #{@classroom.name}")
+        notication.save
+      end
+
     else
         register = Register.new classroom_id: params[:id], user_id: @current_user.id, is_register: true
         register.save
+        notication = Notication.new(id_from: @current_user.id, id_to: @classroom.user_id, content:
+         "Sinh viên #{@current_user.name} vừa đăng ký vào lớp #{@classroom.name}")
+        notication.save
       end
       render json: {
         success: true,
@@ -18,6 +31,7 @@ class ClassroomsController < ApplicationController
           is_register: register.is_register
       }
     }
+
       else
         render json: {
           success: false,

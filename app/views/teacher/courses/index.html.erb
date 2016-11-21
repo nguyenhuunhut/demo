@@ -6,12 +6,30 @@
 <div class="message">
 
 </div>
+<% if @notications %>
+<div class="well col-md-6">
+  <table>
+  <% @notications.each do |notication| %>
+  <tr>
+    <td class="col-md-10">
+      <%= notication.content %>
+    </td>
+    <td class="col-md-3">
+      Đã xem
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+<% end %>
+<div class="col-md-12 well">
 
-<div>
-<a href="<%= new_teacher_course_path %>" class="btn btn-primary">Thêm khóa học</a>
-</div></br>
 
 <label for="teacher">Danh sách khóa học</label>
+<div class="">
+  <a href="<%= new_teacher_course_path %>" class="btn btn-primary">Thêm khóa học</a>
+
+</div>  </br>
 <div class="list-course">
 <table class="table table-hover table-bordered" >
   <tr style="background: pink">
@@ -35,4 +53,5 @@
   </tr>
   <% end %>
 </table>
+</div>
 </div>

@@ -1,7 +1,7 @@
 
 <%= form_for @user, url: users_path  do |f| %>
-<div class="col-md-12">
-<div class="col-md-6">
+
+<div class="col-md-4 col-sm-offset-4 well">
   <div class="form-group">
     <label for="exampleInputName2">Họ tên</label>
     <%= f.text_field :name, class: "form-control", placeholder: "Họ tên" %>
@@ -14,20 +14,20 @@
       <label for="exampleInputEmail2">Địa chỉ</label>
       <%= f.text_field :address, class: "form-control", placeholder: "Địa chỉ" %>
     </div>
-  </div>
-
-<div class="col-md-6">
   <div class="form-group">
     <label for="exampleInputName2">Email</label>
     <%= f.text_field :email, class: "form-control", placeholder: "Email" %>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail2">Password</label>
-    <%= f.text_field :password, class: "form-control", placeholder: "Mật khẩu" %>
+    <label for="exampleInputEmail2">Mật khẩu</label>
+    <%= f.text_field :password, type: "password",class: "form-control", placeholder: "Mật khẩu" %>
   </div>
-  </div>
-  <div class="pull-right">
-    <button type="submit" name="button" class="btn btn-primary ">Thêm</button>
+  <!-- <div class="form-group">
+    <label for="exampleInputEmail2">Xác nhận mật khẩu </label>
+    <input type="text" name="password_confirm" class="form-control" placeholder="Xác nhận mật khẩu" value="">
+  </div> -->
+  <div class="">
+    <button type="submit" name="button" class="btn btn-primary col-md-12">Thêm</button>
   </div>
 </div>
 <% end %>

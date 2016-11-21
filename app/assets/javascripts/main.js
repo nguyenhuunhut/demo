@@ -64,7 +64,7 @@ $(document).ready(function(){
   $('.list-classroom').on('click', '.register-classroom', function(event){
     var self = $(this);
     $.ajax({
-      url: $(this).attr("data-target"),
+      url: self.attr("data-target"),
       type: "post",
       success: function(res){
         if(res.success == true){

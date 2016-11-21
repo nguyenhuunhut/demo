@@ -1,4 +1,20 @@
-
+<% if @notications %>
+<div class="well col-md-6">
+  <table>
+  <% @notications.each do |notication| %>
+  <tr>
+    <td class="col-md-10">
+      <%= notication.content %>
+    </td>
+    <td class="col-md-3">
+      Đã xem
+    </td>
+  </tr>
+  <% end %>
+</table>
+</div>
+<% end %>
+<div class="well">
 <label for="teacher">Danh sách khóa học</label>
 <div class="list-course">
 <table class="table table-hover table-bordered" >
@@ -18,11 +34,12 @@
     <td><%= course.user.name %></td>
     <td><%= course.user.address %></td>
     <td><%= course.user.phone %></td>
-    <td><%= course.user.email %></td>    
+    <td><%= course.user.email %></td>
     <td>
       <a href="<%= course_path(course) %>" class="btn btn-success">Chi tiết</a>
     </td>
   </tr>
   <% end %>
 </table>
+</div>
 </div>
