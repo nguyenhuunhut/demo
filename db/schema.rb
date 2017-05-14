@@ -56,6 +56,7 @@ ActiveRecord::Schema.define(version: 20161120130536) do
   create_table "registers", force: :cascade do |t|
     t.integer  "user_id",      limit: 4
     t.integer  "classroom_id", limit: 4
+    t.integer  "course_id",    limit: 4
     t.boolean  "is_register",            default: false
     t.boolean  "is_pay",                 default: false
     t.datetime "created_at",                             null: false

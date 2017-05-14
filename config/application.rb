@@ -22,5 +22,10 @@ module Demo
 
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
+  #   Tripod.configure do |config|
+  # config.update_endpoint = 'http://127.0.0.1:3030/ds/update'
+  # config.query_endpoint = 'http://127.0.0.1:3030/ds/sparql'
+  # config.timeout_seconds = 30
+# end
   end
 end

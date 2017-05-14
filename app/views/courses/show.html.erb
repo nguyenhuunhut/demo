@@ -1,25 +1,19 @@
-<% if flash[:success] %>
-  <div class="alert alert-success">
-  <%= flash[:success] %>
-  </div>
-<% end %>
-<div class="message">
-</div>
 
-<label>Các lớp học</label>
+<div class="well col-md-12">
+<label>List classroom</label>
 <div class="list-classroom">
 <table class="table table-hover table-bordered" >
   <tr style="background: pink">
-    <th>STT</th>
-    <th>Tên lớp học</th>
-    <th>Môn học</th>
-    <th>Số tháng</th>
-    <th>Thời khóa biểu</th>
-    <th>Ngày bắt đầu</th>
-    <th>Học phí</th>
-    <th>Số lượng</th>
-    <th>Đã đăng ký</th>
-    <th>Chức năng</th>
+    <th>#</th>
+    <th>Name classroom</th>
+    <th>Subject</th>
+    <th>Number month</th>
+    <th>Schedule</th>
+    <th>Date start</th>
+    <th>Fee</th>
+    <th>Number</th>
+    <th>Registered</th>
+    <th>Action</th>
   </tr>
   <% @course.classrooms.each_with_index do |classroom, index| %>
   <tr class="box-classroom">
@@ -35,12 +29,13 @@
     <td>
       <%  register = classroom.registers.where(user_id: @current_user.id).first
       if register %>
-      <a data-target="<%= register_classroom_path(classroom.id) %>" class="btn btn-primary register-classroom"><%= register.try(:is_register) ? "Hủy đăng ký" : "Đăng ký"     %></a>
+      <a data-target="<%= register_classroom_path(classroom.id) %>" class="btn btn-primary register-classroom"><%= register.try(:is_register) ? "Cancel register" : "Register"     %></a>
       <% else %>
-        <a data-target="<%= register_classroom_path(classroom.id) %>" class="btn btn-primary register-classroom">Đăng ký</a>
+        <a data-target="<%= register_classroom_path(classroom.id) %>" class="btn btn-primary register-classroom">Register</a>
       <% end %>
     </td>
   </tr>
   <% end %>
 </table>
+</div>
 </div>

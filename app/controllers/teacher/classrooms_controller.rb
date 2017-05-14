@@ -6,10 +6,12 @@ class Teacher::ClassroomsController < ApplicationController
 
   def create
      @course = Course.find(params[:course_id])
-    if classroom = @course.classrooms().create(classroom_params.merge(user_id: current_user.id))
-      flash[:success] = "Thêm mới thành công!"
+      if @classroom = @course.classrooms().create(classroom_params.merge(user_id: current_user.id))
+      flash[:success] = "Add success!"
       redirect_to teacher_course_path(@course.id)
-    end
+      else
+        render :new
+      end
    end
 
   def edit
@@ -19,12 +21,12 @@ class Teacher::ClassroomsController < ApplicationController
   def update
     @course = Course.find(params[:course_id])
     @classroom = Classroom.find(params[:id])
-    if @classroom.update classroom_params
-      flash[:success] = "Chỉnh sửa thành công!"
+     if @classroom.update classroom_params
+      flash[:success] = "Edit success!"
       redirect_to teacher_course_path(@course.id)
-    else
+     else
       render :edit
-    end
+     end
   end
 
   def destroy
@@ -40,7 +42,7 @@ class Teacher::ClassroomsController < ApplicationController
   end
 
 
-
+  private
   def classroom_params
     params.require(:classroom).permit(:name, :subject, :total, :month, :schedule, :start, :fee, :course_id)
   end

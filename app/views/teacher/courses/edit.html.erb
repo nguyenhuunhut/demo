@@ -1,13 +1,20 @@
+<% if @course.errors.any? %>
+<div class="col-md-4 alert-danger alert col-sm-offset-4">
+<% @course.errors.full_messages.each do |message| %>
+  <li><%= message %></li>
+<% end %>
+</div>
+<% end %>
 <%= form_for @course, url: teacher_course_path do |f| %>
-<div class="col-md-6">
+<div class="col-md-4 col-sm-offset-4 well">
   <div class="form-group">
-    <label for="exampleInputName2">Tên khóa học</label>
-    <%= f.text_field :name, class: "form-control", placeholder: "Tên khóa học" %>
+    <label for="exampleInputName2">Name course</label>
+    <%= f.text_field :name, class: "form-control", placeholder: "Name course" %>
   </div>
   <div class="form-group">
-    <label for="exampleInputEmail2">Mô tả</label>
-    <%= f.text_area :description, class: "form-control", placeholder: "Mô tả" %>
+    <label for="exampleInputEmail2">Description</label>
+    <%= f.text_area :description, class: "form-control", placeholder: "Description" %>
   </div>
-  <button type="submit" name="button" class="btn btn-primary">Sửa</button>
+  <button type="submit" name="button" class="btn btn-primary col-md-12">Edit</button>
   </div>
 <% end %>

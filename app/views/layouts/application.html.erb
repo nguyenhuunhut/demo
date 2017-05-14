@@ -9,17 +9,31 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-<%= render "partils/header" %>
+
+<body style="background-color: #d0d0d0">
+  <header>
+    <%= render "partils/header" %>
+  </header>
 
 
   <% if flash[:error] %>
-  <div class="col-md-2 alert-danger alert pull-right" style="text-align: center">
+  <div class="col-md-2 alert-danger alert pull-right error" style="text-align: center">
   <%= flash[:error] %>
   </div>
   <% end %>
+  <% if flash[:success] %>
+    <div class="alert alert-success col-md-2 pull-right success" style="text-align: center">
+    <%= flash[:success] %>
+    </div>
+  <% end %>
+  <div class="col-md-2 pull-right message" style="text-align: center">
+
+  </div>
   <div class="container">
-  <%= yield %>
+    <div class="" style="background-color: #ffffff">
+      <%= yield %>
+    </div>
+
   </div>
    <!-- <%= render "partils/footer" %> -->
 

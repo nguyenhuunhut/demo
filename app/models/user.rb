@@ -3,9 +3,10 @@ class User < ActiveRecord::Base
   validates :email, presence:true, uniqueness: true
   validates :password, presence:true, length: {minimum: 6}
   validates :name, presence:true
-  validates :phone, presence:true, uniqueness: true
+  validates :phone, presence:true
   validates :address, presence:true
   has_many :courses, dependent: :delete_all
+  has_many :registers, dependent: :delete_all
 
 
 

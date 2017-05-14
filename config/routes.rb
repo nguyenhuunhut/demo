@@ -1,5 +1,10 @@
 Rails.application.routes.draw do
   resources "courses"
+  namespace :courses do
+    post :search
+    get :result
+  end
+
   namespace :admin do
     get '/dashboard/teachers' => 'dashboard#teachers'
     get '/dashboard/students' => 'dashboard#students'
@@ -10,6 +15,11 @@ Rails.application.routes.draw do
   post"/sign" => "sessions#create"
   get"/logout" => "sessions#logout"
   get"/classrooms/registered" => "classrooms#registered"
+  resources "notication" do
+    member do
+      get :delete
+    end
+  end
 
   resources :home
 
@@ -19,6 +29,7 @@ Rails.application.routes.draw do
         resources :users do
          member do
           post :pay
+          get :remove
           end
          end
        end
@@ -29,10 +40,14 @@ Rails.application.routes.draw do
   resources :classrooms do
     member do
       post :register
+
     end
   end
-
-
+  resources :users do
+    member do
+      post :changepassword
+    end
+    end
 
 
 

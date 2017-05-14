@@ -1,12 +1,14 @@
+<div class="col-md-12 well">
 
-<label for="teacher">Danh sách khóa học</label>
+
+<label for="teacher">List courses</label>
 <div class="list-course">
 <table class="table table-hover table-bordered" >
   <tr style="background: pink">
-    <th>STT</th>
-    <th>Tên khóa học</th>
-    <th>Ngày tạo</th>
-    <th>Số lớp</th>
+    <th>#</th>
+    <th>Name course</th>
+    <th>Date Create</th>
+    <th>Number classroom</th>
   </tr>
   <% @user.courses.each_with_index do |course,index| %>
   <tr>
@@ -17,4 +19,5 @@
   </tr>
   <% end %>
 </table>
+</div>
 </div>

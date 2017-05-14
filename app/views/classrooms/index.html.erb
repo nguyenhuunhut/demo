@@ -1,0 +1,36 @@
+
+<div class="col-md-12 well">
+<label>List classrooms</label>
+<div class="list-classroom">
+<table class="table table-hover table-bordered" >
+  <tr style="background: pink">
+    <th>#</th>
+    <th>Name classroom</th>
+    <th>Subject</th>
+    <th>Number month</th>
+    <th>Schedule</th>
+    <th>Date start</th>
+    <th>Fee</th>
+    <th>Number student</th>
+    <th>Registered</th>
+    <th>Paid</th>
+  </tr>
+  <%  @register.each_with_index do |register, index| %>
+  <tr class="box-classroom">
+    <td><%= index+1 %></td>
+    <td><%= register.classroom.name %></td>
+    <td><%= register.classroom.subject %></td>
+    <td><%= register.classroom.month%></td>
+    <td><%= register.classroom.schedule %></td>
+    <td><%= register.classroom.start %></td>
+    <td><%= register.classroom.fee %></td>
+    <td><%= register.classroom.total%></td>
+    <td>
+      <a data-target="<%= register_classroom_path(register.classroom) %>" class="btn btn-primary register-classroom"><%= register.try(:is_register) ? "Cancel register" : "Register"    %></a>
+    </td>
+    <td><%= register.try(:is_pay) ? "Complete" : "Own" %></td>
+  </tr>
+  <% end %>
+</table>
+</div>
+</div>

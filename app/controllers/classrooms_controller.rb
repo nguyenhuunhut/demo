@@ -1,10 +1,14 @@
 class ClassroomsController < ApplicationController
 
+  def index
+    @register = Register.where(user_id: @current_user, is_register: true)
+  end
 
   def register
     @classroom = Classroom.find params[:id]
     register = @classroom.registers.where(user_id: current_user).first
-    if @classroom.registers.where(is_register: true).count < @classroom.total
+    time = Time.now
+    if @classroom.registers.where(is_register: true).count < @classroom.total && time < @classroom.start
     if register
       register.update is_register: !register.is_register
       if register.is_register == true
@@ -33,6 +37,7 @@ class ClassroomsController < ApplicationController
     }
 
       else
+        flash[:error]
         render json: {
           success: false,
         }
@@ -40,6 +45,7 @@ class ClassroomsController < ApplicationController
 
     end
   end
+
 
   def registered
     @registered = Register.where(user_id: @current_user, is_register: true)

@@ -1,22 +1,16 @@
-<div class="message">
-</div>
-  <% if flash[:success] %>
-    <div class="alert alert-success">
-  <%= flash[:success] %>
-    </div>
-  <% end %>
 
-<label for="student">Danh sách học viên</label>
+<div class="col-md-12 well">
+<label for="student">List student</label>
 <div class="list-user">
 <table class="table table-hover table-bordered" >
   <tr style="background: pink">
-    <th>STT</th>
-    <th>Tên</th>
-    <th>Số điện thoại</th>
-    <th>Địa chỉ</th>
+    <th>#</th>
+    <th>Name</th>
+    <th>Phone number</th>
+    <th>Address</th>
     <th>Email</th>
-    <th>Học phí</th>
-    <th>Chức năng</th>
+    <th>Fee</th>
+    <th>Action</th>
   </tr>
   <% @classroom.registers.where(is_register: true).each_with_index do |register,index| %>
   <tr class="box-user">
@@ -25,11 +19,12 @@
     <td><%= register.user.phone %></td>
     <td><%= register.user.address %></td>
     <td><%= register.user.email %></td>
-    <td><a data-target="<%=  pay_teacher_course_classroom_user_path(@classroom.course_id, @classroom, register.user.id) %>" class="btn btn-primary pay-fee"><%= register.try(:is_pay) ? "Xong" :  "Nợ"  %></a></td>
+    <td><a data-target="<%=  pay_teacher_course_classroom_user_path(@classroom.course_id, @classroom, register.user.id) %>" class="btn btn-primary pay-fee"><%= register.try(:is_pay) ? "Complete" :  "Owe"  %></a></td>
     <td>
-      <a data-target="<%=  %>" class="btn btn-danger delete-user" data-confirm="Bạn chắc chắn muốn xóa?">Xóa</a>
+      <a data-target="<%= remove_teacher_course_classroom_user_path(@classroom.course_id, @classroom, register.user.id) %>" class="btn btn-danger remove-user" data-confirm="Are you sure?">Remove</a>
     </td>
   </tr>
   <% end %>
 </table>
+</div>
 </div>

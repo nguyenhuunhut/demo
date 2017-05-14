@@ -14,8 +14,8 @@ class Admin::UsersController < Admin::BaseController
    def create
      @user = User.new user_params
      if  @user.save
-       flash[:success] = "Thêm mới thành công!"
-       redirect_to admin_dashboard_path
+       flash[:success] = "Add success!"
+       redirect_to admin_users_path
      else
        render :new
      end
@@ -30,8 +30,8 @@ class Admin::UsersController < Admin::BaseController
         @user.assign_attributes user_params
       if @user.valid?
         @user.update(user_params)
-        flash[:success] = "Chỉnh sửa thành công!"
-        redirect_to admin_dashboard_path
+        flash[:success] = "Edit success!"
+        redirect_to admin_users_path
      else
         render :edit
      end

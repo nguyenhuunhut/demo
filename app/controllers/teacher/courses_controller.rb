@@ -13,9 +13,12 @@ class Teacher::CoursesController < ApplicationController
   end
 
   def create
-    if @course = @current_user.courses.create(course_params)
-      flash[:success] ="Thêm mới thành công! "
+      @course = @current_user.courses.create(course_params)
+      if @course.save
+      flash[:success] ="Add success! "
       redirect_to teacher_courses_path
+    else
+      render :new
     end
   end
 
@@ -26,7 +29,7 @@ class Teacher::CoursesController < ApplicationController
   def update
     @course = Course.find(params[:id])
     if @course.update course_params
-      flash[:success] = "Chỉnh sửa thành công!"
+      flash[:success] = "Add success!"
       redirect_to teacher_courses_path
     else
       render :edit

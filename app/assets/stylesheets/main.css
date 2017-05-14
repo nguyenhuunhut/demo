@@ -1,0 +1,227 @@
+
+.logo{
+  width:50px !important;
+  height: 50px !important;
+}
+.logo img{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+ul li{
+  list-style: none;
+}
+h3, h4 {
+    margin: 10px 0 30px 0;
+    letter-spacing: 10px;
+    font-size: 20px;
+    color: #111;
+}
+.button-index{
+  padding-top: 20px;
+}
+.button-index a{
+  background: transparent;
+  padding: 10px 30px;
+  border: 1px solid #e0e0d1;
+  color: white;
+}
+.button-index a:hover{
+  background-color: #f7ca18;
+}
+.item.active p, h1{
+  font-size: 60px;
+  color: yellow;
+  padding-bottom: 20px;
+}
+.item.active span{
+  color: white;
+  font-size: 18px;
+  padding-bottom: 150px;
+}
+.carousel-inner img {
+    width: 100%;
+    margin: auto;
+}
+.carousel-caption{
+  bottom:300px;
+}
+.carousel-caption  {
+
+  } h3 {
+    color: #fff !important;
+
+}
+@media (max-width: 600px) {
+  .carousel-caption {
+    display: none; /* Hide the carousel text when the screen is less than 600 pixels wide */
+  }
+}
+.navbar {
+    font-family: Montserrat, sans-serif;
+    margin-bottom: 0;
+    background-color: #2d2d30;
+    border: 0;
+    font-size: 11px !important;
+    letter-spacing: 1px;
+    opacity: 0.9;
+}
+.navbar li a, .navbar .navbar-brand {
+    color: #d5d5d5 !important;
+}
+.navbar-nav li a:hover {
+    color: #fff !important;
+}
+.navbar-nav li.active a {
+    color: #fff !important;
+    background-color: #29292c !important;
+}
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+}
+
+.dropdown-menu li a {
+    color: #000 !important;
+}
+.dropdown-menu li a:hover {
+    background-color: black !important;
+}
+
+#about-us{
+  background: url('../images/about-bg.jpg');
+  background-size: 100% 100%;
+  display: block;
+}
+#about-us .row{
+  color: white;
+  padding-top: 150px;
+  padding-bottom: 150px;
+}
+
+#soccer-system{
+  padding-top: 100px;
+
+}
+#soccer-system .heading{
+  padding-bottom: 30px;
+}
+
+#soccer-picture .heading{
+  padding-bottom: 30px;
+}
+#soccer-picture {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+#soccer-picture .row{
+  margin-bottom:  30px;
+  display: block;
+}
+#soccer-picture img{
+  height: 250px !important ;
+
+}
+
+#contact{
+  background: url('../images/contact-bg.jpg');
+  color: #fff;
+  background-size: 100% 100%;
+  display: block;
+
+}
+
+
+.contact-heading{
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.contact-address li{
+  padding-bottom: 20px;
+}
+.contact-form{
+  padding-bottom:100px;
+
+}
+.contact-form .form-group {
+  padding-bottom: 20px;
+}
+.contact-form .form-control {
+    background: transparent;
+    border-radius: 0px;
+}
+/*index*/
+
+
+#profile, #register, #login {
+    background: url('../images/about.jpg');
+    background-size: 100% 100%;
+    height: auto;
+    display: block;
+    height: 670px;
+    padding-top:80px;
+}
+
+#profile  .profile-form .form-control,
+#register .register-form .form-control,
+#login .login-form .form-control {
+  background: transparent;
+  border-radius: 0px;
+}
+.profile-form .form-group,
+.register-form .form-group,
+.login-form .form-group {
+  padding-bottom: 20px;
+}
+#register h1,
+#login h1{
+  color: red;
+  font-size: 50px;
+}
+
+/*matches*/
+
+#matches,#yourmatches {
+  padding-top: 100px;
+}
+#matches .heading,
+#yourmatches .heading{
+  padding-bottom: 50px;
+}
+#matches table,
+#yourmatches table{
+  margin: auto;
+  border: 1px solid #e0e0d1;
+}
+#matches table th,
+#yourmatches table th{
+  padding:10px 20px;
+    border: 1px solid #e0e0d1;
+}
+#matches table td,
+#yourmatches table td{
+  padding: 10px;
+    border: 1px solid #e0e0d1;
+}
+#detailStadium {
+  padding-bottom: 50px;
+}
+#detailStadium p{
+  font-size: 50px;
+}
+#detailStadium h1{
+  color:red;
+}
+footer {
+    background-color: #2d2d30;
+    color: #f5f5f5;
+    padding: 32px;
+}
+footer a {
+    color: #f5f5f5;
+}
+footer a:hover {
+    color: #777;
+    text-decoration: none;
+}

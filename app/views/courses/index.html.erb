@@ -1,34 +1,58 @@
-<% if @notications %>
-<div class="well col-md-6">
+<div class="col-md-12 ">
+<% if @notications.empty? == false %>
+<div class="well col-md-7 list-notication">
   <table>
   <% @notications.each do |notication| %>
-  <tr>
-    <td class="col-md-10">
+  <tr class="box-notication">
+    <td class="col-md-9">
       <%= notication.content %>
     </td>
-    <td class="col-md-3">
-      Đã xem
+    <td class="col-md-2">
+      <a data-target="<%= delete_notication_path(notication) %>" class="delete-notication" style="text-decoration: none">Delete</a>
     </td>
   </tr>
   <% end %>
 </table>
 </div>
 <% end %>
-<div class="well">
-<label for="teacher">Danh sách khóa học</label>
+<%= form_for :search, url: courses_search_path do |f| %>
+<div class=" search">
+  <form method="post" action="<%= courses_search_path %>">
+  <div class="form-group">
+    <label for="exampleInputEmail2">Teacher's name</label>
+    <%= f.text_field :teacher_name, class: "form-control", placeholder: "Teacher's name" %>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputEmail2">Level</label>
+  <%= f.select(:level, options_for_select([["Basic", "Basic"], ["Advanced","Advanced"]]),{},{class: "form-control"})%>
+  </div>
+  <div class="">
+    <button type="submit" name="submit" class="btn btn-primary col-md-12" id="search-course">Search</button>
+  </div>
+<% end %>
+</div>
+</div>
+
+</div>
+<div class="kq">
+
+</div>
+
+<div class="well col-md-12" id="list-course" style="margin-top: 20px">
+<label for="teacher">List course</label>
 <div class="list-course">
 <table class="table table-hover table-bordered" >
   <tr style="background: pink">
-    <th>STT</th>
-    <th>Tên khóa học</th>
-    <th>Tên giáo viên</th>
-    <th>Địa chỉ</th>
-    <th>Số điện thoại</th>
+    <th>#</th>
+    <th>Name course</th>
+    <th>Name teacher</th>
+    <th>Address</th>
+    <th>Phone number</th>
     <th>Email</th>
-    <th>Chức năng</th>
+    <th>Action</th>
   </tr>
   <% @courses.each_with_index do |course,index| %>
-  <tr>
+  <tr class="box-course">
     <td><%= index+1 %></td>
     <td><%= course.name %></td>
     <td><%= course.user.name %></td>
@@ -36,7 +60,7 @@
     <td><%= course.user.phone %></td>
     <td><%= course.user.email %></td>
     <td>
-      <a href="<%= course_path(course) %>" class="btn btn-success">Chi tiết</a>
+      <a href="<%= course_path(course) %>" class="btn btn-success">Detail</a>
     </td>
   </tr>
   <% end %>
